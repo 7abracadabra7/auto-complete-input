@@ -6,14 +6,19 @@ import Input from "./main";
 
 const App = () => {
   const handleChange = (text) => {
-    setText(text);
-    let firstN = cities.filter((city) =>
-      city.toLowerCase().includes(text.toLowerCase())
+    // let inputWord = text.charAt(0).toUpperCase() + text.slice(1);
+    console.log(text);
+
+    setText(text.toLowerCase());
+    let firstSuggest = cities.filter((city) =>
+      city.toLowerCase().startsWith(text.toLowerCase())
     );
-    console.log(firstN);
-    setHint(firstN);
+    console.log(firstSuggest);
+    const bestSuggestion = firstSuggest[0].toLowerCase();
+    console.log(bestSuggestion);
+    setHint(bestSuggestion);
   };
-  // console.log("first");
+
   const [cities, setCities] = useState(data);
   const [text, setText] = useState("");
   const [hint, setHint] = useState("");
@@ -22,7 +27,6 @@ const App = () => {
     fetch(data)
       .then((response) => response.json())
       .then((data) => setCities(data));
-    console.log(cities);
   });
 
   return (
