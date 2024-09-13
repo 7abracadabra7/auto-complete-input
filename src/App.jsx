@@ -3,18 +3,14 @@ import React from "react";
 import { useEffect } from "react";
 import data from "./cities.json";
 import Input from "./main";
+import Header from "./Header";
 
 const App = () => {
   const handleChange = (text) => {
-    // let inputWord = text.charAt(0).toUpperCase() + text.slice(1);
-    console.log(text);
-
-    setText(text.toLowerCase());
-    let firstSuggest = cities.filter((city) =>
-      city.toLowerCase().startsWith(text.toLowerCase())
-    );
+    setText(text);
+    let firstSuggest = cities.filter((city) => city.startsWith(text));
     console.log(firstSuggest);
-    const bestSuggestion = firstSuggest[0].toLowerCase();
+    const bestSuggestion = firstSuggest[0];
     console.log(bestSuggestion);
     setHint(bestSuggestion);
   };
@@ -31,7 +27,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>hi</h1>
+      <Header />
       <Input
         handleChange={handleChange}
         hint={hint}
