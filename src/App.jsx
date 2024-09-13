@@ -4,8 +4,15 @@ import { useEffect } from "react";
 import data from "./cities.json";
 import Input from "./main";
 import Header from "./Header";
+import Result from "./Result";
+import "./App.css";
 
 const App = () => {
+  const [cities, setCities] = useState(data);
+  const [text, setText] = useState("");
+  const [hint, setHint] = useState("");
+  const [finish, setFinish] = useState({ finish: false, result: "" });
+
   const handleChange = (text) => {
     setText(text);
     let firstSuggest = cities.filter((city) => city.startsWith(text));
@@ -15,10 +22,6 @@ const App = () => {
     setHint(bestSuggestion);
   };
 
-  const [cities, setCities] = useState(data);
-  const [text, setText] = useState("");
-  const [hint, setHint] = useState("");
-
   useEffect(() => {
     fetch(data)
       .then((response) => response.json())
@@ -26,14 +29,17 @@ const App = () => {
   });
 
   return (
-    <div>
+    <div className="container">
       <Header />
       <Input
         handleChange={handleChange}
         hint={hint}
         text={text}
         setText={setText}
+        setHint={setHint}
+        setFinish={setFinish}
       />
+      {finish.finish && <Result text={finish.result} />}
     </div>
   );
 };

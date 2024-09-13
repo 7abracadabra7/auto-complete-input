@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
-const Input = ({ handleChange, hint, text, setText }) => {
+const Input = ({ handleChange, hint, setHint, text, setText, setFinish }) => {
   const handleKey = (event) => {
     if (event.key == "Enter") {
-      setText(hint);
+      setFinish({ finish: true, result: hint });
+      setText("");
+      setHint("");
     }
   };
   return (
