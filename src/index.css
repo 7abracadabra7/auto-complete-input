@@ -1,12 +1,12 @@
-
-*{
+* {
   box-sizing: border-box;
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
- background-color: rgb(156, 102, 206);
+  /* background-color: rgb(156, 102, 206); */
+  background-image: url(./img/AdobeStock_624499925.jpg);
 }
 
 .input {
@@ -24,10 +24,13 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif3;
+  color: black;
 }
 
 .input label {
   position: absolute;
+  color: black;
+
   left: 7px;
   top: 0;
   bottom: 0;

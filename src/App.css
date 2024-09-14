@@ -5,6 +5,8 @@
   padding: 4rem 1rem;
   width: 600px;
   margin: 15rem auto;
-  background-color: blueviolet;
+  background-color: rgb(27, 26, 28);
+  opacity: 90%;
   box-shadow: 3px 3px 10px;
+  color: aliceblue;
 }
